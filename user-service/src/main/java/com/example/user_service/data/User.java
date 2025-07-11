@@ -12,6 +12,9 @@ public class User {
     @Column(name = "user_id")
     private int userId;
 
+    @Column(name = "staff_id")
+    private int staffId;
+
     @Column(name = "username")
     private String username;
 
@@ -30,6 +33,14 @@ public class User {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public int getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(int staffId) {
+        this.staffId = staffId;
     }
 
     public String getUsername() {

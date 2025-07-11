@@ -16,6 +16,10 @@ private UserRepository userRepository;
         User user = userRepository.findByUsernameAndPassword(username, password);
         return user != null;
     }
+
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
 }
 
 

@@ -37,4 +37,21 @@ public class UserController {
         }
     }
 
+    @PostMapping("/username")
+    public ResponseEntity<User> getUserByUsername(@RequestBody User user) {
+        String username = user.getUsername(); // Only care about username
+
+        if (username == null || username.trim().isEmpty()) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        User fullUser = userService.findByUsername(username); // fetch from DB
+
+        if (fullUser != null) {
+            return ResponseEntity.ok(fullUser); // Return full object
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
